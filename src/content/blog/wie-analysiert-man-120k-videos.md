@@ -16,7 +16,7 @@ Danach lief das Scrollen automatisch 🔄: Über ein verbundenes Laptop steuerte
 Ein Kontroll-Account blieb unverändert: keine manuelle Suche, keine Reaktionen auf Videos.
 
 ## Daten sammeln
-Tiktok protokolliert praktisch jede Bewegung seiner Nutzer 📊. Ein Teil dieser Daten lässt sich herunterladen, unter anderem auch die «video watch history» ([Tiktok - Requesting your data]((https://support.tiktok.com/en/account-and-privacy/personalized-ads-and-data/requesting-your-data))). Sie enthält Zeitstempel und IDs aller angesehenen Videos. 
+Tiktok protokolliert praktisch jede Bewegung seiner Nutzer 📊. Ein Teil dieser Daten lässt sich herunterladen, unter anderem auch die «video watch history» ([Tiktok - Requesting your data](https://support.tiktok.com/en/account-and-privacy/personalized-ads-and-data/requesting-your-data)). Sie enthält Zeitstempel und IDs aller angesehenen Videos. 
 
 Mit der Bibliothek [pyktok](https://github.com/dfreelon/pyktok/tree/main) lassen sich die Video-IDs um Metadaten wie Beschreibung, Views, Autor etc. erweitern und auch die Originalvideos ⬇️ herunterladen. Da Pyktok für jedes Video eine Anfrage an die TikTok-Server sendet, lohnt es sich bei ~120’000 Videos, die Anfragen zeitlich zu staffeln, um nicht als Bot erkannt und blockiert zu werden.
 
