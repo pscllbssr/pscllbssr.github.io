@@ -1,0 +1,31 @@
+---
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="footer">
+  <div class="container">
+    <p class="footer-text text-gray text-sm">
+      © {currentYear} Pascal Albisser
+    </p>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    padding: var(--spacing-md) 0;
+    margin-top: var(--spacing-xl);
+    border-top: 1px solid var(--color-border);
+  }
+
+  .footer-text {
+    text-align: center;
+    margin: 0;
+  }
+
+  @media (max-width: 768px) {
+    .footer {
+      padding: var(--spacing-sm) 0;
+      margin-top: var(--spacing-lg);
+    }
+  }
+</style>

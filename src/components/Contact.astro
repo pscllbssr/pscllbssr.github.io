@@ -1,0 +1,150 @@
+---
+---
+
+<section class="contact border-top">
+  <div class="container">
+    <h2>Kontakt</h2>
+    <p class="section-description">
+      Interessiert an einem Austausch, einer Zusammenarbeit oder hast du Fragen? Ich freue mich über deine Nachricht.
+    </p>
+    <form 
+      action="https://api.web3forms.com/submit" 
+      method="POST"
+      class="contact-form"
+    >
+      <!-- Replace with your Web3Forms access key -->
+      <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE" />
+      <input type="hidden" name="subject" value="Neue Nachricht von Portfolio" />
+      <input type="hidden" name="from_name" value="Portfolio Kontaktformular" />
+      
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input 
+          type="text" 
+          id="name" 
+          name="name" 
+          required 
+          placeholder="Ihr Name"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="email">E-Mail</label>
+        <input 
+          type="email" 
+          id="email" 
+          name="email" 
+          required 
+          placeholder="ihre.email@example.com"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="message">Nachricht</label>
+        <textarea 
+          id="message" 
+          name="message" 
+          rows="6" 
+          required
+          placeholder="Ihre Nachricht..."
+        ></textarea>
+      </div>
+
+      <button type="submit" class="submit-button">Senden</button>
+    </form>
+  </div>
+</section>
+
+<style>
+  .contact {
+    background: var(--color-bg);
+    padding-bottom: var(--spacing-xl);
+  }
+
+  .section-description {
+    color: var(--color-gray);
+    font-size: 1.05rem;
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .form-group {
+    margin-bottom: var(--spacing-md);
+  }
+
+  label {
+    display: block;
+    margin-bottom: var(--spacing-xs);
+    font-weight: 500;
+    font-size: 0.95rem;
+  }
+
+  input,
+  textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--color-border);
+    background: var(--color-bg);
+    color: var(--color-text);
+    font-family: inherit;
+    font-size: 1rem;
+    transition: border-color 0.2s ease;
+  }
+
+  input:focus,
+  textarea:focus {
+    outline: none;
+    border-color: var(--color-text);
+  }
+
+  textarea {
+    resize: vertical;
+    min-height: 120px;
+  }
+
+  .submit-button {
+    width: 100%;
+    padding: 0.875rem 2rem;
+    background: var(--color-text);
+    color: var(--color-bg);
+    border: none;
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+  }
+
+  .submit-button:hover {
+    opacity: 0.8;
+  }
+
+  .submit-button:active {
+    opacity: 0.6;
+  }
+
+  @media (max-width: 768px) {
+    .section-description {
+      font-size: 0.95rem;
+      margin-bottom: var(--spacing-md);
+    }
+
+    .contact-form {
+      max-width: 100%;
+    }
+
+    input,
+    textarea {
+      padding: 0.625rem;
+      font-size: 16px; /* Prevents zoom on iOS */
+    }
+
+    .submit-button {
+      padding: 0.75rem 1.5rem;
+    }
+  }
+</style>

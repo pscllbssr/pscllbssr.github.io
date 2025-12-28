@@ -1,0 +1,176 @@
+---
+const projects = [
+  {
+    title: 'Der toxische Sog der Manosphäre',
+    year: 2025,
+    url: 'https://www.srf.ch/news/schweiz/radikalisierung-auf-tiktok-der-toxische-sog-der-manosphere',
+    description: 'Unsere Recherche zeigt am Beispiel von TikTok, wie schnell junge Männer in die Manosphere abrutschen. Dafür haben wir Handys automatisiert und rund 120\'000 Videos analysiert.',
+    collaborators: 'Mit Julian Schmidli und Keto Schumacher',
+    tasks: 'Scraping, Datenanalyse, Visualisierung & Frontend',
+    award: null
+  },
+  {
+    title: 'Der Spion in unseren Handys',
+    year: 2024,
+    url: 'https://www.srf.ch/news/schweiz/tracking-mit-ortungsdiensten-der-spion-in-unseren-handys',
+    description: 'Anhand eines Daten-Samples konnten wir zeigen, was angeblich anonyme Standortdaten aus dem Online-Werbesystem über uns und kritische Schweizer Infrastruktur preisgeben.',
+    collaborators: 'Mit Julian Schmidli und Keto Schumacher',
+    tasks: 'Datenanalyse, Visualisierung & Frontend',
+    award: "Nominierung Deutscher Reporter:innen Preis, Kategorie Datenjournalismus + Multimedia"
+  },
+  {
+    title: 'Am Puls des Planeten – Klimamonitor',
+    year: 2023,
+    url: 'https://www.srf.ch/news/schweiz/klimamonitor-am-puls-des-planeten-taegliche-zahlen-und-fakten-zum-klima',
+    description: 'Die wichtigsten Zahlen und Fakten zum Klima, täglich aktualisiert und bezogen auf den eigenen Wohnort.',
+    collaborators: 'Mit Julian Schmidli und Lukas Frischknecht',
+    tasks: 'Data Engineering, Automatisierung, Visualisierung & Frontend',
+    award: 'Swiss Press Award, Kategorie Online'
+  }
+];
+---
+
+<section class="projects border-top">
+  <div class="container">
+    <h2>Publikationen & Projekte</h2>
+    <p class="section-description">
+    Eine Auswahl meiner datenjournalistischen Arbeiten bei SRF Data.
+    </p>
+    <div class="project-list">
+      {projects.map((project) => (
+        <article class="project-item">
+          <h3>
+            <a href={project.url} target="_blank" rel="noopener noreferrer">
+              {project.title}
+            </a>
+            <span class="year">({project.year})</span>
+          </h3>
+          {project.award && (
+            <div class="award">
+              <strong>★ {project.award}</strong>
+            </div>
+          )}
+          <p class="description">{project.description}</p>
+          <p class="collaborators text-gray text-sm">{project.collaborators}</p>
+          <div class="tasks text-sm">
+            <strong>Verantwortlich für:</strong>
+            {project.tasks.split(',').map(task => (
+              <span class="task-tag">{task.trim()}</span>
+            ))}
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .projects {
+    background: var(--color-bg-alt);
+  }
+
+  .section-description {
+    color: var(--color-gray);
+    font-size: 1.05rem;
+    margin-bottom: var(--spacing-lg);
+    padding-bottom: var(--spacing-md);
+    border-bottom: 1px solid var(--color-light-gray);
+  }
+
+  .project-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+  }
+
+  .project-item {
+    padding-bottom: var(--spacing-lg);
+    border-bottom: 1px solid var(--color-light-gray);
+  }
+
+  .project-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .project-item h3 {
+    margin-bottom: var(--spacing-xs);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.5rem;
+  }
+
+  .project-item h3 a {
+    border-bottom: 2px solid var(--color-text);
+  }
+
+  .year {
+    font-weight: 400;
+    font-size: 1rem;
+    color: var(--color-gray);
+  }
+
+  .award {
+    margin-bottom: var(--spacing-sm);
+    color: var(--color-accent);
+    font-size: 0.9rem;
+  }
+
+  .description {
+    margin-bottom: var(--spacing-sm);
+    line-height: 1.7;
+  }
+
+  .collaborators {
+    margin-bottom: var(--spacing-xs);
+    font-style: italic;
+  }
+
+  .tasks {
+    margin-bottom: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    align-items: center;
+  }
+
+  .tasks strong {
+    margin-right: 0.25rem;
+  }
+
+  .task-tag {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    background: var(--color-accent-bg);
+    color: var(--color-accent);
+    border-radius: 12px;
+    font-size: 0.85rem;
+    font-weight: 500;
+  }
+
+  @media (max-width: 768px) {
+    .section-description {
+      font-size: 0.95rem;
+      margin-bottom: var(--spacing-md);
+      padding-bottom: var(--spacing-sm);
+    }
+
+    .project-list {
+      gap: var(--spacing-md);
+    }
+
+    .project-item {
+      padding-bottom: var(--spacing-md);
+    }
+
+    .project-item h3 {
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+
+    .year {
+      font-size: 0.9rem;
+    }
+  }
+</style>

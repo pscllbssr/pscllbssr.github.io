@@ -1,0 +1,205 @@
+---
+---
+
+<section class="hero">
+  <div class="container">
+    <div class="hero-content">
+      <div class="text-section">
+        <div class="intro-text">
+          <p class="greeting">
+            Hallo, ich bin Pascal.
+          </p>
+          <p class="credentials">
+            Datenjournalist | Full-Stack Data Developer<br />
+            MSc Applied Information and Data Science
+          </p>
+          <p class="description">
+            Ich <span class="rotating-text" id="rotatingText">analysiere</span> Daten und entwickle interaktive Lösungen, um aus Zahlen Erkenntnisse zu machen.
+          </p>
+        </div>
+        <div class="contact-section">
+          <h3>Kontakt</h3>
+          <div class="contact-links">
+            <a href="https://www.linkedin.com/in/pascal-albisser" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <span class="separator">•</span>
+            <a href="mailto:your.email@example.com">E-Mail</a>
+          </div>
+        </div>
+      </div>
+      <img src="/images/pascal.jpg" alt="Pascal Albisser" class="profile-photo" />
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    padding: var(--spacing-xl) 0;
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+  }
+
+  .hero-content {
+    display: flex;
+    gap: var(--spacing-lg);
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+
+  .text-section {
+    flex: 1;
+  }
+
+  .profile-photo {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--color-border);
+    flex-shrink: 0;
+  }
+
+  .intro-text {
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .greeting {
+    font-size: 1.5rem;
+    line-height: 1.6;
+    margin-bottom: var(--spacing-xs);
+  }
+
+  .credentials {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: var(--color-gray);
+    margin-bottom: var(--spacing-md);
+  }
+
+  .description {
+    font-size: 1.25rem;
+    line-height: 1.6;
+    margin-bottom: 0;
+  }
+
+  .rotating-text {
+    font-weight: 600;
+    color: var(--color-accent);
+    display: inline-block;
+    min-width: 140px;
+    text-align: left;
+  }
+
+  .contact-section {
+    margin-top: var(--spacing-md);
+  }
+
+  .contact-section h3 {
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: var(--spacing-xs);
+    color: var(--color-gray);
+    font-weight: 500;
+  }
+
+  .contact-links {
+    display: flex;
+    gap: var(--spacing-sm);
+    align-items: center;
+    font-size: 0.95rem;
+  }
+
+  .separator {
+    color: var(--color-gray);
+  }
+
+  @media (max-width: 768px) {
+    .hero {
+      min-height: 50vh;
+      padding: var(--spacing-lg) 0;
+    }
+
+    .hero-content {
+      flex-direction: column;
+      gap: var(--spacing-md);
+    }
+
+    .profile-photo {
+      width: 120px;
+      height: 120px;
+      order: 2;
+    }
+
+    .text-section {
+      order: 1;
+    }
+
+    .greeting {
+      font-size: 1.25rem;
+    }
+
+    .credentials {
+      font-size: 0.95rem;
+    }
+
+    .description {
+      font-size: 1.125rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .profile-photo {
+      width: 100px;
+      height: 100px;
+    }
+
+    .greeting {
+      font-size: 1.125rem;
+    }
+
+    .credentials {
+      font-size: 0.875rem;
+    }
+
+    .description {
+      font-size: 1rem;
+    }
+
+    .contact-links {
+      flex-direction: column;
+      gap: var(--spacing-xs);
+      align-items: flex-start;
+    }
+
+    .separator {
+      display: none;
+    }
+  }
+</style>
+
+<script>
+  const words = ['analysiere', 'visualisiere', 'automatisiere'];
+  let currentIndex = 0;
+  const rotatingElement = document.getElementById('rotatingText');
+
+  function rotateText() {
+    if (!rotatingElement) return;
+    
+    rotatingElement.style.opacity = '0';
+    
+    setTimeout(() => {
+      currentIndex = (currentIndex + 1) % words.length;
+      rotatingElement.textContent = words[currentIndex];
+      rotatingElement.style.opacity = '1';
+    }, 300);
+  }
+
+  // Rotate every 3 seconds
+  setInterval(rotateText, 3000);
+
+  // CSS transition for smooth fade
+  if (rotatingElement) {
+    rotatingElement.style.transition = 'opacity 0.3s ease-in-out';
+  }
+</script>

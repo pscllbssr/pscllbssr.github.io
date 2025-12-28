@@ -1,0 +1,112 @@
+---
+import { getCollection } from 'astro:content';
+
+const blogPosts = await getCollection('blog');
+const sortedPosts = blogPosts.sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime());
+
+function formatDate(date: Date) {
+  return new Intl.DateTimeFormat('de-DE', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
+  }).format(date);
+}
+---
+
+<section class="blog border-top">
+  <div class="container">
+    <h2>Blog</h2>
+    {sortedPosts.length > 0 ? (
+      <div class="blog-list">
+        {sortedPosts.map((post) => (
+          <article class="blog-item">
+            <h3>
+              <a href={`/blog/${post.slug}`}>{post.data.title}</a>
+            </h3>
+            <p class="date text-gray text-sm">{formatDate(post.data.pubDate)}</p>
+            <p class="description">{post.data.description}</p>
+            {post.data.tags && post.data.tags.length > 0 && (
+              <div class="tags">
+                {post.data.tags.map(tag => (
+                  <span class="tag">{tag}</span>
+                ))}
+              </div>
+            )}
+          </article>
+        ))}
+      </div>
+    ) : (
+      <p class="coming-soon text-gray">Beiträge folgen...</p>
+    )}
+  </div>
+</section>
+
+<style>
+  .blog {
+    background: var(--color-bg-alt);
+  }
+
+  .blog-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+  }
+
+  .blog-item {
+    padding-bottom: var(--spacing-lg);
+    border-bottom: 1px solid var(--color-light-gray);
+  }
+
+  .blog-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .blog-item h3 {
+    margin-bottom: var(--spacing-xs);
+  }
+
+  .blog-item h3 a {
+    border-bottom: 2px solid var(--color-text);
+  }
+
+  .date {
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .description {
+    margin-bottom: var(--spacing-sm);
+    line-height: 1.7;
+  }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .tag {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    background: var(--color-accent-bg);
+    color: var(--color-accent);
+    border-radius: 12px;
+    font-size: 0.85rem;
+    font-weight: 500;
+  }
+
+  .coming-soon {
+    font-style: italic;
+    font-size: 0.95rem;
+  }
+
+  @media (max-width: 768px) {
+    .blog-list {
+      gap: var(--spacing-md);
+    }
+
+    .blog-item {
+      padding-bottom: var(--spacing-md);
+    }
+  }
+</style>

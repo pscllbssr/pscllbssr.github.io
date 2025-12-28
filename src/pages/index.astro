@@ -1,0 +1,47 @@
+---
+import '../styles/global.css';
+import Hero from '../components/Hero.astro';
+import Projects from '../components/Projects.astro';
+import OwnProjects from '../components/OwnProjects.astro';
+import Blog from '../components/Blog.astro';
+import Contact from '../components/Contact.astro';
+import Footer from '../components/Footer.astro';
+
+const title = 'Pascal Albisser – Datenjournalist & Full-Stack Data Developer';
+const description = 'Portfolio von Pascal Albisser. Datenanalyse, Visualisierung und interaktive Lösungen.';
+---
+
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <meta name="author" content="Pascal Albisser" />
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    
+    <title>{title}</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  </head>
+  <body>
+    <main>
+      <Hero />
+      <Projects />
+      <OwnProjects />
+      <Blog />
+      <Contact />
+    </main>
+    <Footer />
+  </body>
+</html>

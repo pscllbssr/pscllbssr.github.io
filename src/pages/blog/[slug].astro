@@ -1,0 +1,225 @@
+---
+import { getCollection } from 'astro:content';
+import '../../styles/global.css';
+
+export async function getStaticPaths() {
+  const blogPosts = await getCollection('blog');
+  return blogPosts.map(post => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await post.render();
+
+function formatDate(date: Date) {
+  return new Intl.DateTimeFormat('de-DE', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
+  }).format(date);
+}
+
+const title = `${post.data.title} - Pascal Albisser`;
+---
+
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={post.data.description} />
+    <meta name="author" content={post.data.author} />
+    
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content={post.data.title} />
+    <meta property="og:description" content={post.data.description} />
+    
+    <title>{title}</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  </head>
+  <body>
+    <main class="container blog-post">
+      <nav class="back-link">
+        <a href="/">← Zurück</a>
+      </nav>
+      
+      <article>
+        <header class="post-header">
+          <h1>{post.data.title}</h1>
+          <div class="post-meta">
+            <p class="date text-gray">{formatDate(post.data.pubDate)}</p>
+            {post.data.tags && post.data.tags.length > 0 && (
+              <div class="tags">
+                {post.data.tags.map(tag => (
+                  <span class="tag">{tag}</span>
+                ))}
+              </div>
+            )}
+          </div>
+        </header>
+        
+        <div class="content">
+          <Content />
+        </div>
+      </article>
+      
+      <nav class="back-link bottom">
+        <a href="/">← Zurück zur Startseite</a>
+      </nav>
+    </main>
+  </body>
+</html>
+
+<style>
+  .blog-post {
+    padding: var(--spacing-xl) var(--spacing-md);
+    max-width: 720px;
+  }
+
+  .back-link {
+    margin-bottom: var(--spacing-md);
+  }
+
+  .back-link.bottom {
+    margin-top: var(--spacing-xl);
+    padding-top: var(--spacing-lg);
+    border-top: 1px solid var(--color-border);
+  }
+
+  .back-link a {
+    font-size: 0.9rem;
+    border-bottom: 1px solid var(--color-text);
+  }
+
+  .post-header {
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .post-header h1 {
+    font-size: 2.25rem;
+    line-height: 1.2;
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .post-meta {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+  }
+
+  .date {
+    font-size: 0.95rem;
+    margin: 0;
+  }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .tag {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    background: var(--color-accent-bg);
+    color: var(--color-accent);
+    border-radius: 12px;
+    font-size: 0.85rem;
+    font-weight: 500;
+  }
+
+  .content {
+    line-height: 1.8;
+  }
+
+  .content :global(h1) {
+    font-size: 2rem;
+    margin-top: var(--spacing-xl);
+    margin-bottom: var(--spacing-md);
+  }
+
+  .content :global(h2) {
+    font-size: 1.5rem;
+    margin-top: var(--spacing-lg);
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .content :global(h3) {
+    font-size: 1.25rem;
+    margin-top: var(--spacing-md);
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .content :global(p) {
+    margin-bottom: var(--spacing-md);
+  }
+
+  .content :global(ul),
+  .content :global(ol) {
+    margin-bottom: var(--spacing-md);
+    padding-left: var(--spacing-md);
+  }
+
+  .content :global(li) {
+    margin-bottom: var(--spacing-xs);
+  }
+
+  .content :global(code) {
+    background: var(--color-light-gray);
+    padding: 0.125rem 0.375rem;
+    border-radius: 3px;
+    font-size: 0.9em;
+    font-family: 'Courier New', monospace;
+  }
+
+  .content :global(pre) {
+    background: var(--color-light-gray);
+    padding: var(--spacing-sm);
+    border-radius: 4px;
+    overflow-x: auto;
+    margin-bottom: var(--spacing-md);
+  }
+
+  .content :global(pre code) {
+    background: none;
+    padding: 0;
+  }
+
+  .content :global(blockquote) {
+    border-left: 3px solid var(--color-accent);
+    padding-left: var(--spacing-sm);
+    margin: var(--spacing-md) 0;
+    color: var(--color-gray);
+    font-style: italic;
+  }
+
+  .content :global(hr) {
+    border: none;
+    border-top: 1px solid var(--color-border);
+    margin: var(--spacing-lg) 0;
+  }
+
+  @media (max-width: 768px) {
+    .blog-post {
+      padding: var(--spacing-lg) var(--spacing-sm);
+    }
+
+    .post-header h1 {
+      font-size: 1.75rem;
+    }
+
+    .content :global(h1) {
+      font-size: 1.5rem;
+    }
+
+    .content :global(h2) {
+      font-size: 1.25rem;
+    }
+
+    .content :global(h3) {
+      font-size: 1.125rem;
+    }
+  }
+</style>
