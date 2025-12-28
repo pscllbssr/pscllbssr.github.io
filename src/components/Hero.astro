@@ -5,28 +5,11 @@ import profileImage from '../assets/images/pascal.jpg';
 
 <section class="hero">
   <div class="container">
-    <div class="hero-content">
-      <div class="text-section">
-        <div class="intro-text">
-          <p class="greeting">
-            Hallo, ich bin Pascal.
-          </p>
-          <p class="credentials">
-            Datenjournalist | Full-Stack Data Developer<br />
-            MSc Applied Information and Data Science
-          </p>
-          <p class="description">
-            Ich <span class="rotating-text" id="rotatingText">analysiere</span> Daten und entwickle interaktive Lösungen, um aus Zahlen Erkenntnisse zu machen.
-          </p>
-        </div>
-        <div class="contact-section">
-          <h3>Kontakt</h3>
-          <div class="contact-links">
-            <a href="https://www.linkedin.com/in/pascal-albisser" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-            <span class="separator">•</span>
-            <a href="#" class="email-link" data-user="pscl.lbssr" data-domain="gmail.com">E-Mail</a>
-          </div>
-        </div>
+    <div class="header-row">
+      <div class="header-text">
+        <h1 class="name">Pascal Albisser</h1>
+        <p class="title">Datenjournalist & Full-Stack Data Developer</p>
+        <p class="degree">MSc Applied Information and Data Science</p>
       </div>
       <Image 
         src={profileImage} 
@@ -37,6 +20,18 @@ import profileImage from '../assets/images/pascal.jpg';
         quality={85}
         format="webp"
       />
+    </div>
+    <div class="content-section">
+      <p class="description">
+        Ich entwickle <span class="highlight">digitale Anwendungen</span>, die komplexe Datensätze und Zusammenhänge greifbar machen. Von unübersichtlichen Rohdaten über <span class="highlight">Datenanalyse</span>, <span class="highlight">Automatisierung</span> und <span class="highlight">KI</span> hin zu klaren <span class="highlight">Visualisierungen</span>, <span class="highlight">Dashboards</span> und <span class="highlight">interaktiven Geschichten</span>.
+      </p>
+      <div class="contact-section">
+        <div class="contact-links">
+          <a href="#" class="email-link" data-user="pscl.lbssr" data-domain="gmail.com">E-Mail</a>
+          <span class="separator">•</span>
+          <a href="https://www.linkedin.com/in/pascal-albisser" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -49,14 +44,14 @@ import profileImage from '../assets/images/pascal.jpg';
     align-items: center;
   }
 
-  .hero-content {
+  .header-row {
     display: flex;
     gap: var(--spacing-lg);
     align-items: flex-start;
-    justify-content: space-between;
+    margin-bottom: 0;
   }
 
-  .text-section {
+  .header-text {
     flex: 1;
   }
 
@@ -69,8 +64,36 @@ import profileImage from '../assets/images/pascal.jpg';
     flex-shrink: 0;
   }
 
+  .content-section {
+    /* Full width for description and contact */
+  }
+
   .intro-text {
     margin-bottom: var(--spacing-lg);
+  }
+
+  .name {
+    font-size: 2.5rem;
+    font-weight: 600;
+    line-height: 1.2;
+    margin-bottom: var(--spacing-xs);
+    letter-spacing: -0.02em;
+  }
+
+  .title {
+    font-size: 1.125rem;
+    font-weight: 500;
+    line-height: 1.5;
+    margin-bottom: var(--spacing-xs);
+    color: var(--color-text);
+  }
+
+  .degree {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: var(--color-gray);
+    margin-bottom: var(--spacing-lg);
+    font-weight: 400;
   }
 
   .greeting {
@@ -87,9 +110,24 @@ import profileImage from '../assets/images/pascal.jpg';
   }
 
   .description {
-    font-size: 1.25rem;
-    line-height: 1.6;
+    font-size: 1.125rem;
+    line-height: 1.7;
     margin-bottom: 0;
+    max-width: 66%;
+  }
+
+  .highlight {
+    font-weight: 500;
+    color: #d63031;
+    background: rgba(214, 48, 49, 0.08);
+    padding: 0.05rem 0.25rem;
+    border-radius: 3px;
+    transition: background 0.2s ease;
+    white-space: nowrap;
+  }
+
+  .highlight:hover {
+    background: rgba(214, 48, 49, 0.12);
   }
 
   .rotating-text {
@@ -130,19 +168,25 @@ import profileImage from '../assets/images/pascal.jpg';
       padding: var(--spacing-lg) 0;
     }
 
-    .hero-content {
-      flex-direction: column;
+    .header-row {
       gap: var(--spacing-md);
     }
 
     .profile-photo {
       width: 120px;
       height: 120px;
-      order: 2;
     }
 
-    .text-section {
-      order: 1;
+    .name {
+      font-size: 2rem;
+    }
+
+    .title {
+      font-size: 1.05rem;
+    }
+
+    .degree {
+      font-size: 0.85rem;
     }
 
     .greeting {
@@ -154,14 +198,41 @@ import profileImage from '../assets/images/pascal.jpg';
     }
 
     .description {
-      font-size: 1.125rem;
+      font-size: 1.05rem;
+      max-width: 100%;
     }
   }
 
   @media (max-width: 480px) {
+    .header-row {
+      flex-direction: column;
+      gap: var(--spacing-md);
+      align-items: flex-start;
+    }
+
+    .header-text {
+      order: 2;
+      width: 100%;
+      text-align: left;
+    }
+
     .profile-photo {
       width: 100px;
       height: 100px;
+      order: 1;
+      align-self: center;
+    }
+
+    .name {
+      font-size: 1.75rem;
+    }
+
+    .title {
+      font-size: 1rem;
+    }
+
+    .degree {
+      font-size: 0.8rem;
     }
 
     .greeting {
@@ -174,16 +245,7 @@ import profileImage from '../assets/images/pascal.jpg';
 
     .description {
       font-size: 1rem;
-    }
-
-    .contact-links {
-      flex-direction: column;
-      gap: var(--spacing-xs);
-      align-items: flex-start;
-    }
-
-    .separator {
-      display: none;
+      max-width: 100%;
     }
   }
 </style>
