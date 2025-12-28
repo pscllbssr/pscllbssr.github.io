@@ -1,0 +1,160 @@
+---
+---
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vielen Dank</title>
+  <link rel="stylesheet" href="/styles/global.css">
+</head>
+<body>
+  <main class="thanks-page">
+    <div class="thanks-container">
+      <div class="thanks-content">
+        <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+          <circle class="checkmark-circle" cx="26" cy="26" r="25" fill="none"/>
+          <path class="checkmark-check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+        </svg>
+        
+        <h1>Vielen Dank!</h1>
+        <p class="message">
+          Deine Nachricht wurde erfolgreich versendet. Ich werde mich so schnell wie möglich bei dir melden.
+        </p>
+        
+        <a href="/" class="back-button">Zurück zur Hauptseite</a>
+      </div>
+    </div>
+  </main>
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--color-bg);
+    }
+
+    .thanks-page {
+      width: 100%;
+      padding: var(--spacing-md);
+    }
+
+    .thanks-container {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .thanks-content {
+      text-align: center;
+      padding: var(--spacing-xl);
+    }
+
+    .checkmark {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto var(--spacing-lg);
+      display: block;
+    }
+
+    .checkmark-circle {
+      stroke: var(--color-text);
+      stroke-width: 2;
+      stroke-miterlimit: 10;
+      animation: fill 0.4s ease-in-out 0.4s forwards, scale 0.3s ease-in-out 0.9s both;
+    }
+
+    .checkmark-check {
+      stroke: var(--color-text);
+      stroke-width: 3;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-dasharray: 48;
+      stroke-dashoffset: 48;
+      animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards;
+    }
+
+    @keyframes stroke {
+      100% {
+        stroke-dashoffset: 0;
+      }
+    }
+
+    @keyframes scale {
+      0%, 100% {
+        transform: none;
+      }
+      50% {
+        transform: scale3d(1.1, 1.1, 1);
+      }
+    }
+
+    @keyframes fill {
+      100% {
+        fill: var(--color-text);
+        fill-opacity: 0.1;
+      }
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: var(--spacing-md);
+      color: var(--color-text);
+    }
+
+    .message {
+      font-size: 1.125rem;
+      color: var(--color-gray);
+      line-height: 1.6;
+      margin-bottom: var(--spacing-lg);
+    }
+
+    .back-button {
+      display: inline-block;
+      padding: 0.875rem 2rem;
+      background: var(--color-text);
+      color: var(--color-bg);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1rem;
+      transition: opacity 0.2s ease;
+    }
+
+    .back-button:hover {
+      opacity: 0.8;
+    }
+
+    .back-button:active {
+      opacity: 0.6;
+    }
+
+    @media (max-width: 768px) {
+      .thanks-content {
+        padding: var(--spacing-lg);
+      }
+
+      .checkmark {
+        width: 60px;
+        height: 60px;
+      }
+
+      h1 {
+        font-size: 2rem;
+      }
+
+      .message {
+        font-size: 1rem;
+      }
+
+      .back-button {
+        padding: 0.75rem 1.5rem;
+        font-size: 0.95rem;
+      }
+    }
+  </style>
+</body>
+</html>
