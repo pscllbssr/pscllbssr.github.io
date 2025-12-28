@@ -3,37 +3,65 @@
 
 <section class="own-projects border-top">
   <div class="container">
-    <h2>Selbstständige Projekte</h2>
+    <h2>Eigene Projekte</h2>
     <p class="section-description">
-      Nebenbei verfolge ich auch verschiedene Projekte im Bereich Software, Daten & KI.
-    </p>
-    <p class="coming-soon text-gray">Coming soon...</p>
+    Neben meiner journalistischen Tätigkeit arbeite ich an verschiedenen Software- und Datenprojekten und experimentiere mit Anwendungsmöglichkeiten generativer KI.    </p>
+    <div class="project-list">
+      <article class="project-item placeholder">
+        <h3>Demnächst verfügbar:</h3>
+        <p class="description">Automatisierter Musik-Newsletter</p>
+      </article>
+    </div>
   </div>
 </section>
 
 <style>
   .own-projects {
-    background: var(--color-bg);
+    background: var(--color-bg-alt2);
   }
 
-  .section-description {
-    color: var(--color-gray);
-    font-size: 1.05rem;
-    margin-bottom: var(--spacing-lg);
-    padding-bottom: var(--spacing-md);
+  .project-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xl);
+  }
+
+  .project-item {
+    padding-bottom: var(--spacing-xl);
     border-bottom: 1px solid var(--color-light-gray);
   }
 
-  .coming-soon {
-    font-style: italic;
-    font-size: 0.95rem;
+  .project-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .project-item.placeholder {
+    opacity: 0.6;
+  }
+
+  .project-item.placeholder h3 {
+    color: var(--color-gray);
+    margin-bottom: var(--spacing-xs);
+  }
+
+  .project-item h3 {
+    margin-bottom: var(--spacing-xs);
+  }
+
+  .description {
+    margin-bottom: 0;
+    line-height: 1.7;
+    color: var(--color-gray);
   }
 
   @media (max-width: 768px) {
-    .section-description {
-      font-size: 0.95rem;
-      margin-bottom: var(--spacing-md);
-      padding-bottom: var(--spacing-sm);
+    .project-list {
+      gap: var(--spacing-lg);
+    }
+
+    .project-item {
+      padding-bottom: var(--spacing-lg);
     }
   }
 </style>

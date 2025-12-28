@@ -276,7 +276,7 @@ import profileImage from '../assets/images/pascal.jpg';
   }
 
   // Obfuscated email link
-  const emailLink = document.querySelector('.email-link');
+  const emailLink = document.querySelector('.email-link') as HTMLAnchorElement | null;
   if (emailLink) {
     const user = emailLink.getAttribute('data-user');
     const domain = emailLink.getAttribute('data-domain');

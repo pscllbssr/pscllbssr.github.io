@@ -16,6 +16,9 @@ function formatDate(date: Date) {
 <section class="blog border-top">
   <div class="container">
     <h2>Blog</h2>
+    <p class="section-description">
+      Technische Einblicke und Making-ofs meiner Recherchen und Projekte.
+    </p>
     {sortedPosts.length > 0 ? (
       <div class="blog-list">
         {sortedPosts.map((post) => (
@@ -43,17 +46,17 @@ function formatDate(date: Date) {
 
 <style>
   .blog {
-    background: var(--color-bg-alt);
+    background: var(--color-bg);
   }
 
   .blog-list {
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-lg);
+    gap: var(--spacing-xl);
   }
 
   .blog-item {
-    padding-bottom: var(--spacing-lg);
+    padding-bottom: var(--spacing-xl);
     border-bottom: 1px solid var(--color-light-gray);
   }
 

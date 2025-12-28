@@ -20,27 +20,28 @@ const redirectUrl = `${siteUrl}/thanks`;
       <input type="hidden" name="from_name" value="Portfolio Kontaktformular" />
       <input type="hidden" name="redirect" value={redirectUrl} />
 
-      
-      <div class="form-group">
-        <label for="name">Name</label>
-        <input 
-          type="text" 
-          id="name" 
-          name="name" 
-          required 
-          placeholder="Dein Name"
-        />
-      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input 
+            type="text" 
+            id="name" 
+            name="name" 
+            required 
+            placeholder="Dein Name"
+          />
+        </div>
 
-      <div class="form-group">
-        <label for="email">E-Mail</label>
-        <input 
-          type="email" 
-          id="email" 
-          name="email" 
-          required 
-          placeholder="deine.email@example.com"
-        />
+        <div class="form-group">
+          <label for="email">E-Mail</label>
+          <input 
+            type="email" 
+            id="email" 
+            name="email" 
+            required 
+            placeholder="deine.email@example.com"
+          />
+        </div>
       </div>
 
       <div class="form-group">
@@ -48,32 +49,38 @@ const redirectUrl = `${siteUrl}/thanks`;
         <textarea 
           id="message" 
           name="message" 
-          rows="6" 
+          rows="5" 
           required
           placeholder="Deine Nachricht..."
         ></textarea>
       </div>
 
-      <button type="submit" class="submit-button">Senden</button>
+      <button type="submit" class="submit-button">Nachricht senden →</button>
     </form>
   </div>
 </section>
 
 <style>
   .contact {
-    background: var(--color-bg);
+    background: var(--color-bg-alt);
     padding-bottom: var(--spacing-xl);
   }
 
   .section-description {
     color: var(--color-gray);
-    font-size: 1.05rem;
-    margin-bottom: var(--spacing-lg);
+    font-size: 1.1rem;
+    margin-bottom: var(--spacing-xl);
+    line-height: 1.7;
   }
 
   .contact-form {
-    max-width: 600px;
     margin: 0 auto;
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-md);
   }
 
   .form-group {
@@ -92,6 +99,7 @@ const redirectUrl = `${siteUrl}/thanks`;
     width: 100%;
     padding: 0.75rem;
     border: 1px solid var(--color-border);
+    border-radius: 4px;
     background: var(--color-bg);
     color: var(--color-text);
     font-family: inherit;
@@ -107,38 +115,43 @@ const redirectUrl = `${siteUrl}/thanks`;
 
   textarea {
     resize: vertical;
-    min-height: 120px;
+    min-height: 100px;
   }
 
   .submit-button {
-    width: 100%;
-    padding: 0.875rem 2rem;
-    background: var(--color-text);
+    padding: 0.75rem 1.75rem;
+    background: var(--color-accent);
     color: var(--color-bg);
-    border: none;
+    border: 1px solid var(--color-accent);
+    border-radius: 4px;
     font-family: inherit;
-    font-size: 1rem;
+    font-size: 0.95rem;
     font-weight: 500;
     cursor: pointer;
-    transition: opacity 0.2s ease;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
   }
 
   .submit-button:hover {
-    opacity: 0.8;
+    opacity: 0.85;
+    transform: translateY(-1px);
   }
 
   .submit-button:active {
-    opacity: 0.6;
+    transform: translateY(0);
+    opacity: 0.7;
   }
 
   @media (max-width: 768px) {
-    .section-description {
-      font-size: 0.95rem;
-      margin-bottom: var(--spacing-md);
-    }
-
     .contact-form {
       max-width: 100%;
+    }
+
+    .form-row {
+      grid-template-columns: 1fr;
+      gap: 0;
     }
 
     input,
@@ -149,6 +162,7 @@ const redirectUrl = `${siteUrl}/thanks`;
 
     .submit-button {
       padding: 0.75rem 1.5rem;
+      font-size: 0.9rem;
     }
   }
 </style>
