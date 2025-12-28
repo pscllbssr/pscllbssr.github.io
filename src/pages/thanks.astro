@@ -1,4 +1,9 @@
 ---
+import '../styles/global.css';
+import Footer from '../components/Footer.astro';
+
+const title = 'Vielen Dank – Pascal Albisser';
+const description = 'Danke für deine Nachricht. Ich werde mich so schnell wie möglich bei dir melden.';
 ---
 
 <!DOCTYPE html>
@@ -6,52 +11,45 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vielen Dank</title>
-  <link rel="stylesheet" href="/styles/global.css">
+  <meta name="description" content={description} />
+  <title>{title}</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 </head>
 <body>
-  <main class="thanks-page">
-    <div class="thanks-container">
-      <div class="thanks-content">
-        <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
-          <circle class="checkmark-circle" cx="26" cy="26" r="25" fill="none"/>
-          <path class="checkmark-check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
-        </svg>
-        
-        <h1>Vielen Dank!</h1>
-        <p class="message">
-          Deine Nachricht wurde erfolgreich versendet. Ich werde mich so schnell wie möglich bei dir melden.
-        </p>
-        
-        <a href="/" class="back-button">Zurück zur Hauptseite</a>
+  <main>
+    <section class="thanks-section">
+      <div class="container">
+        <div class="thanks-content">
+          <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+            <circle class="checkmark-circle" cx="26" cy="26" r="25" fill="none"/>
+            <path class="checkmark-check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+          </svg>
+          
+          <h1>Vielen Dank!</h1>
+          <p class="message">
+            Deine Nachricht wurde erfolgreich versendet. Ich werde mich so schnell wie möglich bei dir melden.
+          </p>
+          
+          <a href="/" class="back-button">Zurück zur Hauptseite</a>
+        </div>
       </div>
-    </div>
+    </section>
   </main>
+  <Footer />
 
   <style>
-    body {
-      margin: 0;
-      padding: 0;
-      min-height: 100vh;
+    .thanks-section {
+      min-height: 80vh;
       display: flex;
       align-items: center;
       justify-content: center;
-      background: var(--color-bg);
-    }
-
-    .thanks-page {
-      width: 100%;
-      padding: var(--spacing-md);
-    }
-
-    .thanks-container {
-      max-width: 600px;
-      margin: 0 auto;
+      padding: var(--spacing-xl) 0;
     }
 
     .thanks-content {
       text-align: center;
-      padding: var(--spacing-xl);
+      max-width: 600px;
+      margin: 0 auto;
     }
 
     .checkmark {
@@ -133,8 +131,9 @@
     }
 
     @media (max-width: 768px) {
-      .thanks-content {
-        padding: var(--spacing-lg);
+      .thanks-section {
+        min-height: 70vh;
+        padding: var(--spacing-lg) 0;
       }
 
       .checkmark {

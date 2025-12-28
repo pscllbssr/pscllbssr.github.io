@@ -1,4 +1,6 @@
 ---
+import { Image } from 'astro:assets';
+import profileImage from '../assets/images/pascal.jpg';
 ---
 
 <section class="hero">
@@ -22,11 +24,19 @@
           <div class="contact-links">
             <a href="https://www.linkedin.com/in/pascal-albisser" target="_blank" rel="noopener noreferrer">LinkedIn</a>
             <span class="separator">•</span>
-            <a href="mailto:your.email@example.com">E-Mail</a>
+            <a href="#" class="email-link" data-user="pscl.lbssr" data-domain="gmail.com">E-Mail</a>
           </div>
         </div>
       </div>
-      <img src="/images/pascal.jpg" alt="Pascal Albisser" class="profile-photo" />
+      <Image 
+        src={profileImage} 
+        alt="Pascal Albisser" 
+        class="profile-photo"
+        width={360}
+        height={360}
+        quality={85}
+        format="webp"
+      />
     </div>
   </div>
 </section>
@@ -201,5 +211,14 @@
   // CSS transition for smooth fade
   if (rotatingElement) {
     rotatingElement.style.transition = 'opacity 0.3s ease-in-out';
+  }
+
+  // Obfuscated email link
+  const emailLink = document.querySelector('.email-link');
+  if (emailLink) {
+    const user = emailLink.getAttribute('data-user');
+    const domain = emailLink.getAttribute('data-domain');
+    emailLink.href = `mailto:${user}@${domain}`;
+    emailLink.setAttribute('aria-label', `E-Mail an ${user}@${domain}`);
   }
 </script>

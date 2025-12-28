@@ -8,6 +8,7 @@ const blogCollection = defineCollection({
     pubDate: z.date(),
     author: z.string().default('Pascal Albisser'),
     tags: z.array(z.string()).optional(),
+    heroImage: z.string().optional(),
   }),
 });
 
