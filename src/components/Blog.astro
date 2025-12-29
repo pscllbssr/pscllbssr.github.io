@@ -20,24 +20,14 @@ function formatDate(date: Date) {
       Technische Einblicke und Making-ofs meiner Recherchen und Projekte.
     </p>
     {sortedPosts.length > 0 ? (
-      <div class="blog-list">
+      <ul class="blog-list">
         {sortedPosts.map((post) => (
-          <article class="blog-item">
-            <h3>
-              <a href={`/blog/${post.slug}`}>{post.data.title}</a>
-            </h3>
-            <p class="date text-gray text-sm">{formatDate(post.data.pubDate)}</p>
-            <p class="description">{post.data.description}</p>
-            {post.data.tags && post.data.tags.length > 0 && (
-              <div class="tags">
-                {post.data.tags.map(tag => (
-                  <span class="tag">{tag}</span>
-                ))}
-              </div>
-            )}
-          </article>
+          <li class="blog-item">
+            <span class="date text-gray">{formatDate(post.data.pubDate)}</span>
+            <a href={`/blog/${post.slug}`}>{post.data.title}</a>
+          </li>
         ))}
-      </div>
+      </ul>
     ) : (
       <p class="coming-soon text-gray">Beiträge folgen...</p>
     )}
@@ -50,52 +40,31 @@ function formatDate(date: Date) {
   }
 
   .blog-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-xl);
+    gap: var(--spacing-sm);
   }
 
   .blog-item {
-    padding-bottom: var(--spacing-xl);
-    border-bottom: 1px solid var(--color-light-gray);
-  }
-
-  .blog-item:last-child {
-    border-bottom: none;
-    padding-bottom: 0;
-  }
-
-  .blog-item h3 {
-    margin-bottom: var(--spacing-xs);
-  }
-
-  .blog-item h3 a {
-    border-bottom: 2px solid var(--color-text);
+    display: flex;
+    gap: var(--spacing-md);
+    align-items: baseline;
   }
 
   .date {
-    margin-bottom: var(--spacing-sm);
+    font-size: 0.95rem;
+    min-width: 150px;
+    flex-shrink: 0;
   }
 
-  .description {
-    margin-bottom: var(--spacing-sm);
-    line-height: 1.7;
-  }
-
-  .tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-  }
-
-  .tag {
-    display: inline-block;
-    padding: 0.25rem 0.75rem;
-    background: var(--color-accent-bg);
-    color: var(--color-accent);
-    border-radius: 12px;
-    font-size: 0.85rem;
-    font-weight: 500;
+  .blog-item a {
+    border-bottom: none;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    font-size: 1.05rem;
   }
 
   .coming-soon {
@@ -104,12 +73,19 @@ function formatDate(date: Date) {
   }
 
   @media (max-width: 768px) {
-    .blog-list {
-      gap: var(--spacing-md);
+    .blog-item {
+      flex-direction: column;
+      gap: var(--spacing-xs);
+      align-items: flex-start;
     }
 
-    .blog-item {
-      padding-bottom: var(--spacing-md);
+    .date {
+      min-width: auto;
+      font-size: 0.875rem;
+    }
+
+    .blog-item a {
+      font-size: 1rem;
     }
   }
 </style>

@@ -6,12 +6,7 @@ import profileImage from '../assets/images/pascal.jpg';
 <section class="hero">
   <div class="container">
     <div class="header-row">
-      <div class="header-text">
-        <h1 class="name">Pascal Albisser</h1>
-        <p class="title">Datenjournalist & Full-Stack Data Developer</p>
-        <p class="degree">MSc Applied Information and Data Science</p>
-      </div>
-      <Image 
+    <Image 
         src={profileImage} 
         alt="Pascal Albisser" 
         class="profile-photo"
@@ -20,6 +15,9 @@ import profileImage from '../assets/images/pascal.jpg';
         quality={85}
         format="webp"
       />
+      <div class="header-text">
+        <h1 class="name">Hallo, ich bin Pascal. <br/>Datenjournalist bei <a href="https://www.srf.ch/data" target="_blank">SRF</a> und Full-Stack Data Developer.</h1>
+      </div>
     </div>
     <div class="content-section">
       <p class="description">
@@ -45,7 +43,6 @@ import profileImage from '../assets/images/pascal.jpg';
   }
 
   .header-row {
-    display: flex;
     gap: var(--spacing-lg);
     align-items: flex-start;
     margin-bottom: 0;
@@ -60,12 +57,11 @@ import profileImage from '../assets/images/pascal.jpg';
     height: 180px;
     border-radius: 50%;
     object-fit: cover;
-    border: 2px solid var(--color-border);
     flex-shrink: 0;
   }
 
   .content-section {
-    /* Full width for description and contact */
+    margin: var(--spacing-md) 0;
   }
 
   .intro-text {
@@ -113,7 +109,6 @@ import profileImage from '../assets/images/pascal.jpg';
     font-size: 1.125rem;
     line-height: 1.7;
     margin-bottom: 0;
-    max-width: 66%;
   }
 
   .highlight {
@@ -220,7 +215,6 @@ import profileImage from '../assets/images/pascal.jpg';
       width: 100px;
       height: 100px;
       order: 1;
-      align-self: center;
     }
 
     .name {
@@ -251,30 +245,6 @@ import profileImage from '../assets/images/pascal.jpg';
 </style>
 
 <script>
-  const words = ['analysiere', 'visualisiere', 'automatisiere'];
-  let currentIndex = 0;
-  const rotatingElement = document.getElementById('rotatingText');
-
-  function rotateText() {
-    if (!rotatingElement) return;
-    
-    rotatingElement.style.opacity = '0';
-    
-    setTimeout(() => {
-      currentIndex = (currentIndex + 1) % words.length;
-      rotatingElement.textContent = words[currentIndex];
-      rotatingElement.style.opacity = '1';
-    }, 300);
-  }
-
-  // Rotate every 3 seconds
-  setInterval(rotateText, 3000);
-
-  // CSS transition for smooth fade
-  if (rotatingElement) {
-    rotatingElement.style.transition = 'opacity 0.3s ease-in-out';
-  }
-
   // Obfuscated email link
   const emailLink = document.querySelector('.email-link') as HTMLAnchorElement | null;
   if (emailLink) {
