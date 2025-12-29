@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import '../../styles/global.css';
+import BaseLayout from '../../layouts/BaseLayout.astro';
 
 export async function getStaticPaths() {
   const blogPosts = await getCollection('blog');
@@ -24,59 +25,44 @@ function formatDate(date: Date) {
 const title = `${post.data.title} - Pascal Albisser`;
 ---
 
-<!DOCTYPE html>
-<html lang="de">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content={post.data.description} />
-    <meta name="author" content={post.data.author} />
+<BaseLayout title={title} description={post.data.description} type="article">
+  <main class="container blog-post">
+    <nav class="back-link">
+      <a href="/">← Zurück</a>
+    </nav>
     
-    <meta property="og:type" content="article" />
-    <meta property="og:title" content={post.data.title} />
-    <meta property="og:description" content={post.data.description} />
-    
-    <title>{title}</title>
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  </head>
-  <body>
-    <main class="container blog-post">
-      <nav class="back-link">
-        <a href="/">← Zurück</a>
-      </nav>
-      
-      <article>
-        <header class="post-header">
-          {post.data.heroImage && (
-            <img 
-              src={post.data.heroImage} 
-              alt={post.data.title}
-              class="hero-image"
-              loading="lazy"
-            />
-          )}
-          <h1>{post.data.title}</h1>
-          <div class="post-meta">
-            <p class="date text-gray">
-              {formatDate(post.data.pubDate)}
-              {post.data.author && (
-                <span> • {post.data.author}</span>
-              )}
-            </p>
-            {post.data.tags && post.data.tags.length > 0 && (
-              <div class="tags">
-                {post.data.tags.map(tag => (
-                  <span class="tag">{tag}</span>
-                ))}
-              </div>
+    <article>
+      <header class="post-header">
+        {post.data.heroImage && (
+          <img 
+            src={post.data.heroImage} 
+            alt={post.data.title}
+            class="hero-image"
+            loading="lazy"
+          />
+        )}
+        <h1>{post.data.title}</h1>
+        <div class="post-meta">
+          <p class="date text-gray">
+            {formatDate(post.data.pubDate)}
+            {post.data.author && (
+              <span> • {post.data.author}</span>
             )}
-          </div>
-        </header>
-        
-        <div class="content">
-          <Content />
+          </p>
+          {post.data.tags && post.data.tags.length > 0 && (
+            <div class="tags">
+              {post.data.tags.map(tag => (
+                <span class="tag">{tag}</span>
+              ))}
+            </div>
+          )}
         </div>
-      </article>
+      </header>
+      
+      <div class="content">
+        <Content />
+      </div>
+    </article>
       
       <nav class="back-link bottom">
         <a href="/">← Zurück zur Startseite</a>
