@@ -1,9 +1,13 @@
 ---
+import { Icon } from 'astro-icon/components';
 ---
 
 <section class="own-projects border-top">
   <div class="container">
-    <h2>Eigene Projekte</h2>
+    <h2>
+      <Icon name="mdi:lightbulb" width="28" height="28" />
+      Eigene Projekte
+    </h2>
     <p class="section-description">
     Neben meiner journalistischen Tätigkeit arbeite ich an verschiedenen Software- und Datenprojekten und experimentiere mit Anwendungsmöglichkeiten generativer KI.    </p>
     <div class="project-list">
@@ -17,7 +21,7 @@
 
 <style>
   .own-projects {
-    background: var(--color-bg-alt2);
+    background: var(--color-bg);
   }
 
   .project-list {

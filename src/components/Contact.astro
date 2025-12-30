@@ -1,11 +1,16 @@
 ---
+import { Icon } from 'astro-icon/components';
+
 const siteUrl = Astro.site?.toString().replace(/\/$/, '') || Astro.url.origin;
 const redirectUrl = `${siteUrl}/thanks`;
 ---
 
 <section class="contact border-top">
   <div class="container">
-    <h2>Kontakt</h2>
+    <h2>
+      <Icon name="mdi:email-outline" width="28" height="28" />
+      Kontakt
+    </h2>
     <p class="section-description">
       Interessiert an einem Austausch, einer Zusammenarbeit oder hast du Fragen? Ich freue mich über deine Nachricht.
     </p>
@@ -62,13 +67,13 @@ const redirectUrl = `${siteUrl}/thanks`;
 
 <style>
   .contact {
-    background: var(--color-bg-alt);
+    background: var(--color-bg);
     padding-bottom: var(--spacing-xl);
   }
 
   .section-description {
     color: var(--color-gray);
-    font-size: 1.1rem;
+    font-size: 1rem;
     margin-bottom: var(--spacing-xl);
     line-height: 1.7;
   }

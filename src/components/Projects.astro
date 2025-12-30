@@ -1,4 +1,6 @@
 ---
+import { Icon } from 'astro-icon/components';
+
 const projects = [
   {
     title: 'Der toxische Sog der Manosphere',
@@ -32,7 +34,10 @@ const projects = [
 
 <section class="projects border-top">
   <div class="container">
-    <h2>Recherchen und Artikel</h2>
+    <h2>
+      <Icon name="mdi:monitor-dashboard" width="28" height="28" />
+      Interaktive Datengeschichten
+    </h2>
     <p class="section-description">
     Eine Auswahl meiner datenjournalistischen Arbeiten bei SRF Data.
     </p>
@@ -72,35 +77,41 @@ const projects = [
   .project-list {
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-xl);
+    gap: var(--spacing-md);
   }
 
   .project-item {
-    padding-bottom: var(--spacing-xl);
-    border-bottom: 1px solid var(--color-light-gray);
-  }
-
-  .project-item:last-child {
-    border-bottom: none;
-    padding-bottom: 0;
+    padding: var(--spacing-sm) var(--spacing-sm);
+    margin-left: calc(-1 * var(--spacing-sm));
+    margin-right: calc(-1 * var(--spacing-sm));
+    border-radius: 8px;
+    background: var(--color-bg);
+    border: 1px solid var(--color-light-gray);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
   }
 
   .project-item h3 {
     margin-bottom: var(--spacing-xs);
     display: flex;
-    flex-wrap: wrap;
-    align-items: baseline;
-    gap: 0.5rem;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: var(--spacing-sm);
   }
 
   .project-item h3 a {
-    border-bottom: 2px solid var(--color-text);
+    border-bottom: none;
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 2px;
+    flex: 1;
+    min-width: 0;
   }
 
   .year {
     font-weight: 400;
     font-size: 1rem;
     color: var(--color-gray);
+    flex-shrink: 0;
   }
 
   .award {
@@ -133,7 +144,7 @@ const projects = [
 
   .task-tag {
     display: inline-block;
-    padding: 0.25rem 0.75rem;
+    padding: 0.15rem 0.5rem;
     background: var(--color-accent-bg);
     color: var(--color-accent);
     border-radius: 12px;
@@ -143,20 +154,28 @@ const projects = [
 
   @media (max-width: 768px) {
     .project-list {
-      gap: var(--spacing-lg);
+      gap: var(--spacing-sm);
     }
 
     .project-item {
-      padding-bottom: var(--spacing-lg);
+      margin-left: 0;
+      margin-right: 0;
     }
 
     .project-item h3 {
-      flex-direction: column;
-      gap: 0.25rem;
+      flex-wrap: wrap;
     }
 
     .year {
       font-size: 0.9rem;
+    }
+  }
+
+  @media (min-width: 769px){
+    .project-item{
+      padding: var(--spacing-sm) var(--spacing-md);
+      margin-left: calc(-1 * var(--spacing-md));
+      margin-right: calc(-1 * var(--spacing-md));
     }
   }
 </style>
