@@ -36,7 +36,7 @@
 }
 
 html {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', 'Helvetica Neue', Arial, sans-serif;
+  font-family: 'Public Sans Variable', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   line-height: 1.6;
   color: var(--color-text);
   background: var(--color-bg);
@@ -84,14 +84,18 @@ a:hover {
 }
 
 /* External link indicator */
+a[target="_blank"] {
+  display: inline;
+  white-space: normal;
+}
+
 a[target="_blank"]::after {
-  content: "↗";
+  content: "\00a0↗";
   font-size: 0.75em;
-  margin-left: 0.2em;
   opacity: 0.6;
-  display: inline-block;
   vertical-align: middle;
   transform: translateY(-0.05em);
+  display: inline;
 }
 
 /* Layout */

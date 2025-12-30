@@ -10,6 +10,7 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@fontsource-variable/public-sans": "^5.2.7",
     "@iconify-json/mdi": "^1.2.3",
     "astro": "^4.0.0",
     "astro-icon": "^1.1.5"

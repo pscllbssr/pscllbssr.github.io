@@ -5,7 +5,7 @@ const currentYear = new Date().getFullYear();
 <footer class="footer">
   <div class="container">
     <p class="footer-text text-gray text-sm">
-      Erstellt von Pascal Albisser mit Hilfe von Claude Sonnet 4.5 und <a href="https://astro.build" target="_blank" rel="noopener noreferrer">Astro</a>
+      Erstellt von Pascal Albisser mit Hilfe von Claude Sonnet 4.5 und <a href="https://astro.build" target="_blank" rel="noopener noreferrer">Astro</a>. Schrift: <a href="https://public-sans.digital.gov/" target="_blank" rel="noopener noreferrer">Public Sans</a>
     </p>
   </div>
 </footer>
@@ -13,8 +13,8 @@ const currentYear = new Date().getFullYear();
 <style>
   .footer {
     padding: var(--spacing-md) 0;
-    margin-top: var(--spacing-xl);
-    border-top: 1px solid var(--color-border);
+    margin-top: 0;
+    background: var(--color-bg-alt);
   }
 
   .footer-text {
@@ -25,7 +25,6 @@ const currentYear = new Date().getFullYear();
   @media (max-width: 768px) {
     .footer {
       padding: var(--spacing-sm) 0;
-      margin-top: var(--spacing-lg);
     }
   }
 </style>
