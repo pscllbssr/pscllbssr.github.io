@@ -4,27 +4,69 @@ const currentYear = new Date().getFullYear();
 
 <footer class="footer">
   <div class="container">
-    <p class="footer-text text-gray text-sm">
-      Erstellt von Pascal Albisser mit Hilfe von Claude Sonnet 4.5 und <a href="https://astro.build" target="_blank" rel="noopener noreferrer">Astro</a>. Schrift: <a href="https://public-sans.digital.gov/" target="_blank" rel="noopener noreferrer">Public Sans</a>
-    </p>
+    <div class="footer-content">
+      <div class="footer-info">
+        <p class="footer-name">Pascal Albisser</p>
+        <p class="footer-title">Datenjournalist & Full-Stack Data Developer</p>
+        <p class="footer-location">Münsingen, Schweiz</p>
+      </div>
+      <div class="footer-credits">
+        <p class="footer-text text-gray text-sm">
+          Erstellt mit Hilfe von Claude Sonnet 4.5 und <a href="https://astro.build" target="_blank" rel="noopener noreferrer">Astro</a>. Schrift: <a href="https://public-sans.digital.gov/" target="_blank" rel="noopener noreferrer">Public Sans</a>
+        </p>
+      </div>
+    </div>
   </div>
 </footer>
 
 <style>
   .footer {
-    padding: var(--spacing-md) 0;
+    padding: var(--spacing-lg) 0;
     margin-top: 0;
     background: var(--color-bg-alt);
+    border-top: 1px solid var(--color-border);
+  }
+
+  .footer-content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+  }
+
+  .footer-info {
+    flex: 0 0 auto;
+  }
+
+  .footer-name {
+    font-weight: 600;
+    font-size: 1rem;
+    margin: 0 0 0.25rem 0;
+  }
+
+  .footer-title {
+    font-size: 0.9rem;
+    color: var(--color-gray);
+    margin: 0 0 0.25rem 0;
+  }
+
+  .footer-location {
+    font-size: 0.9rem;
+    color: var(--color-gray);
+    margin: 0;
+  }
+
+  .footer-credits {
+    flex: 1;
+    text-align: left;
   }
 
   .footer-text {
-    text-align: center;
     margin: 0;
   }
 
   @media (max-width: 768px) {
     .footer {
-      padding: var(--spacing-sm) 0;
+      padding: var(--spacing-md) 0;
     }
   }
 </style>
