@@ -44,10 +44,7 @@ const title = `${post.data.title} - Pascal Albisser`;
         <h1>{post.data.title}</h1>
         <div class="post-meta">
           <p class="date text-gray">
-            {formatDate(post.data.pubDate)}
-            {post.data.author && (
-              <span> • {post.data.author}</span>
-            )}
+            Von <a href="/" class="author-link">Pascal Albisser</a> • {formatDate(post.data.pubDate)}
           </p>
           {post.data.tags && post.data.tags.length > 0 && (
             <div class="tags">
@@ -120,6 +117,18 @@ const title = `${post.data.title} - Pascal Albisser`;
   .date {
     font-size: 0.95rem;
     margin: 0;
+  }
+
+  .author-link {
+    color: var(--color-text);
+    font-weight: 500;
+    text-decoration: none;
+    border-bottom: 1px solid var(--color-text);
+  }
+
+  .author-link:hover {
+    color: var(--color-accent);
+    border-bottom-color: var(--color-accent);
   }
 
   .tags {

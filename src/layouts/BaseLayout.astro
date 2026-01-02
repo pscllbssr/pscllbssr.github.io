@@ -33,6 +33,26 @@ const { title, description, type = 'website' } = Astro.props;
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     
+    <!-- Structured Data / Schema Markup -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Pascal Albisser",
+        "jobTitle": "Datenjournalist & Full-Stack Data Developer",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "SRF Data",
+          "url": "https://www.srf.ch/data"
+        },
+        "url": "https://pscl.lbssr.ch",
+        "sameAs": [
+          "https://www.linkedin.com/in/pascal-albisser",
+          "https://threema.id/KCYR9NKH"
+        ]
+      }
+    </script>
+    
     <!-- Cloudflare Web Analytics -->
     <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "8c921cb46d74430cbd8facb096dcc063"}'></script>
     <!-- End Cloudflare Web Analytics -->

@@ -35,6 +35,11 @@ import { Icon } from 'astro-icon/components';
             <Icon name="mdi:linkedin" width="16" height="16" />
             LinkedIn
           </a>
+          <span class="separator">•</span>
+          <span class="threema-id">
+            <Icon name="mdi:message-text" width="16" height="16" />
+            Threema: <a href="https://threema.id/KCYR9NKH" target="_blank" rel="noopener noreferrer" class="threema-code">KCYR9NKH</a>
+          </span>
         </div>
       </div>
     </div>
@@ -185,6 +190,24 @@ import { Icon } from 'astro-icon/components';
   }
 
   .contact-links a::after {
+    content: none;
+  }
+
+  .threema-id {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    color: var(--color-text);
+    font-size: 0.95rem;
+  }
+
+  .threema-code {
+    font-family: monospace;
+    position: relative;
+    top: 0.5px;
+  }
+
+  .threema-code::after {
     content: none;
   }
 
