@@ -34,7 +34,7 @@ const { title, description, type = 'website' } = Astro.props;
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     
     <!-- Structured Data / Schema Markup -->
-    <script type="application/ld+json">
+    <script type="application/ld+json" is:inline>
       {
         "@context": "https://schema.org",
         "@type": "Person",
@@ -54,8 +54,8 @@ const { title, description, type = 'website' } = Astro.props;
     </script>
     
    <!-- Matomo -->
-  <script>
-    var _paq = window._paq = window._paq || [];
+  <script is:inline>
+    var _paq = (window as any)._paq = (window as any)._paq || [];
     /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
     _paq.push(['trackPageView']);
     _paq.push(['enableLinkTracking']);
