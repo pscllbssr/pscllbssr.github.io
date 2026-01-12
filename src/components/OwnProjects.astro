@@ -1,5 +1,14 @@
 ---
 import { Icon } from 'astro-icon/components';
+
+const ownProjects = [
+  {
+    title: 'Offbeat Odyssey Newsletter',
+    description: 'Jeden Dienstag und Freitag taucht Offbeat Odyssey mit dir in ein neues Musikgenre ein, inklusive Playlist mit den essentiellen Tracks. Jetzt kostenlos Platz sichern: <a href="https://buttondown.com/offbeat-odyssey" target="_blank" rel="noopener noreferrer">buttondown.com/offbeat-odyssey</a>. <br/>Dahinter liegt ein vollautomatisiertes System: KI «recherchiert» Hintergründe und textet den Newsletter gleich selbst.',
+    url: 'https://buttondown.com/offbeat-odyssey/archive/',
+    isPlaceholder: false
+  },
+];
 ---
 
 <section class="own-projects border-top">
@@ -11,10 +20,21 @@ import { Icon } from 'astro-icon/components';
     <p class="section-description">
     Neben meiner journalistischen Tätigkeit arbeite ich an verschiedenen Software- und Datenprojekten und experimentiere mit Anwendungsmöglichkeiten generativer KI.    </p>
     <div class="project-list">
-      <article class="project-item placeholder">
-        <h3>Demnächst verfügbar:</h3>
-        <p class="description">Automatisierter Musik-Newsletter</p>
-      </article>
+      {ownProjects.map((project) => (
+        <article class:list={["project-item", { placeholder: project.isPlaceholder }]}>
+          <h3>
+            {project.isPlaceholder ? (
+              <>Demnächst verfügbar: {project.title}</>
+            ) : (
+              <a href={project.url} target="_blank" rel="noopener noreferrer">
+                {project.title}
+              </a>
+            )}
+          </h3>
+          <p class="description" set:html={project.description}>
+          </p>
+        </article>
+      ))}
     </div>
   </div>
 </section>
