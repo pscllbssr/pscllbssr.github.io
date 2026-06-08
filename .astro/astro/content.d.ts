@@ -148,6 +148,13 @@ declare module 'astro:content' {
   collection: "blog";
   data: InferEntrySchema<"blog">
 } & { render(): Render[".md"] };
+"pii-test.md": {
+	id: "pii-test.md";
+  slug: "pii-test";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
 "wie-analysiert-man-120k-videos.md": {
 	id: "wie-analysiert-man-120k-videos.md";
   slug: "wie-analysiert-man-120k-videos";

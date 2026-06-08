@@ -179,6 +179,63 @@ h2 {
   }
 }
 
+/* Images in article/prose content */
+article img,
+.content img,
+.prose img {
+  width: 100%;
+  height: auto;
+  display: block;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+}
+
+@media (prefers-color-scheme: dark) {
+  article img,
+  .content img,
+  .prose img {
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
+  }
+}
+
+@media (min-width: 769px) {
+  article img,
+  .content img,
+  .prose img {
+    margin-left: -1.5rem;
+    margin-right: -1.5rem;
+    width: calc(100% + 3rem);
+  }
+}
+
+/* Tables */
+.table-caption {
+  font-size: 0.8rem;
+  color: var(--color-gray);
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+th, td {
+  padding: 0.65rem 0.75rem;
+  text-align: left;
+  border-bottom: 1px solid var(--color-border);
+}
+
+th {
+  font-weight: 600;
+  border-bottom: 2px solid var(--color-border);
+}
+
+tr:last-child td {
+  border-bottom: none;
+}
+
 /* Utilities */
 .text-gray {
   color: var(--color-gray);
