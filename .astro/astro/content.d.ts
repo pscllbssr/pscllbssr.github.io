@@ -148,9 +148,9 @@ declare module 'astro:content' {
   collection: "blog";
   data: InferEntrySchema<"blog">
 } & { render(): Render[".md"] };
-"pii-test.md": {
-	id: "pii-test.md";
-  slug: "pii-test";
+"openai-privacy-filter-test.md": {
+	id: "openai-privacy-filter-test.md";
+  slug: "openai-privacy-filter-test";
   body: string;
   collection: "blog";
   data: InferEntrySchema<"blog">

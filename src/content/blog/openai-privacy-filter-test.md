@@ -1,8 +1,8 @@
 ---
 title: "Privacy Filter: KI nutzen mit persönlichen Informationen?"
-description: "Der OpenAI Privacy Filter getestet mit Gerichtsakten."
+description: "Der OpenAI Privacy Filter getestet mit deutsprachigen Gerichtsdokumenten."
 pubDate: 2026-06-08
-tags: ["PII", "KI", "Anonymisierung", "NER"]
+tags: ["Datenschutz", "KI", "Anonymisierung"]
 heroImage: ""
 ---
 
