@@ -36,8 +36,13 @@ import { Icon } from 'astro-icon/components';
             LinkedIn
           </a>
           <span class="separator">•</span>
+          <span class="signal-id">
+            <Icon name="mdi:message-lock" width="16" height="16" />
+            Signal: <a href="https://signal.me/#eu/9EZUknUpmicwTaVhNYXBi02i3g92T9BFuBx0LZAERnc3aWu8MKdGfo3agLiIqd8z" target="_blank" rel="noopener noreferrer" class="threema-code">pasc.41</a>
+          </span>
+          <span class="separator">•</span>
           <span class="threema-id">
-            <Icon name="mdi:message-text" width="16" height="16" />
+            <Icon name="mdi:message-lock" width="16" height="16" />
             Threema: <a href="https://threema.id/KCYR9NKH" target="_blank" rel="noopener noreferrer" class="threema-code">KCYR9NKH</a>
           </span>
         </div>
@@ -193,7 +198,8 @@ import { Icon } from 'astro-icon/components';
     content: none;
   }
 
-  .threema-id {
+  .threema-id,
+  .signal-id {
     display: inline-flex;
     align-items: center;
     gap: 0.35rem;
