@@ -9,7 +9,7 @@ const projects = [
     description: 'Unsere Recherche zeigt am Beispiel von TikTok, wie schnell junge Männer in die Manosphere abrutschen. Dafür haben wir Handys automatisiert und rund 120\'000 Videos analysiert.',
     collaborators: 'Mit Julian Schmidli und Keto Schumacher',
     tasks: 'Scraping, Datenanalyse, Visualisierung & Frontend',
-    award: "Journalismuspreis Informatik"
+    award: ["Journalismuspreis Informatik", "Prix MultiMédia Akademien der Wissenschaften Schweiz"]
   },
   {
     title: 'Der Spion in unseren Handys',
@@ -52,7 +52,9 @@ const projects = [
           </h3>
           {project.award && (
             <div class="award">
-              <strong>★ {project.award}</strong>
+              {[project.award].flat().map(award => (
+                <strong>★ {award}</strong>
+              ))}
             </div>
           )}
           <p class="description">{project.description}</p>
@@ -118,6 +120,10 @@ const projects = [
     margin-bottom: var(--spacing-sm);
     color: var(--color-accent);
     font-size: 0.9rem;
+  }
+
+  .award strong {
+    display: block;
   }
 
   .description {
