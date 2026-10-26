@@ -1,7 +1,7 @@
 ---
 title: "Boote beobachten mit KI"
 description: "Mit Vibe-Coding journalistische Werkzeuge bauen."
-pubDate: 2026-09-19
+pubDate: 2026-10-26
 tags: ["Vibe-Coding", "KI"]
 heroImage: "/images/blog/roi-picker.webp"
 ---
